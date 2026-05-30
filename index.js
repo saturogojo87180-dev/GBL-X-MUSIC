@@ -2629,8 +2629,8 @@ Made by Team GBL`);
                 });
               }
 
-              const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\\n\\n• 247 enabled');
-              await message.reply({ components: [container], flags: MessageFlags.IsComponentsV2 });
+              const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_4:1507687406927740948>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
+              await message.reply({ embeds: [container] });
             }
           }
 
