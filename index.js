@@ -190,7 +190,7 @@ function antiNukeEmbed(title, user, action) {
   return new EmbedBuilder()
     .setColor('#000000')
     .setDescription(
-`<a:emoji_4:1507687406927740948> **${title}**
+`<a:emoji_5:1510378351867465970> **${title}**
 
 **User :** ${user}
 **Action :** ${action}`
@@ -201,7 +201,7 @@ function whitelistEmbed(action, target, reason = 'No Reason') {
   return new EmbedBuilder()
     .setColor('#000000')
     .setDescription(
-`<a:emoji_4:1507687406927740948> 𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss
+`<a:emoji_5:1510378351867465970> 𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss
 
 <a:emoji_6:1508919030562426950> Successfully ${action} ${target}
 
@@ -834,7 +834,7 @@ riffy.on('queueEnd', async (player) => {
   }
 
   if (queue247.has(player.guildId)) {
-    await updateVoiceChannelStatus(player, '🤖 24/7 Mode Active | /play');
+    await updateVoiceChannelStatus(player, '24/7 Mode Active | .play');
     if (channel) {
       const container = createSimpleContainerNoButtons('24/7 Mode', 'Queue ended but staying in 24/7 mode', config.emojis.info);
       await channel.send({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
@@ -914,7 +914,7 @@ client.on('interactionCreate', async (interaction) => {
   if (interaction.isChatInputCommand() && false) {
     const embed = new EmbedBuilder()
       .setColor('#000000')
-      .setDescription(` <a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n<a:emoji_6:1508919030562426950> Successfully Enabled\n\n<a:emoji_4:1507687406927740948> **𝐀ʟʟ 𝐀ɴᴛɪɴᴜᴋᴇ 𝐂ᴏᴍᴍᴀɴᴅs 𝐀ʀᴇ 𝐄ɴᴀʙʟᴇᴅ**`);
+      .setDescription(` <a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n<a:emoji_6:1508919030562426950> Successfully Enabled\n\n<a:emoji_5:1510378351867465970> **𝐀ʟʟ 𝐀ɴᴛɪɴᴜᴋᴇ 𝐂ᴏᴍᴍᴀɴᴅs 𝐀ʀᴇ 𝐄ɴᴀʙʟᴇᴅ**`);
 
     const panel = new EmbedBuilder()
       .setColor('#000000')
@@ -951,7 +951,7 @@ client.on('interactionCreate', async (interaction) => {
 
   if (interaction.isStringSelectMenu() && interaction.customId === 'antinuke_select') {
     const selected = interaction.values[0];
-    let desc = `<a:emoji_4:1507687406927740948> **𝐀ɴᴛɪɴᴜᴋᴇ 𝐂ᴏᴍᴍᴀɴᴅs 𝐄ɴᴀʙʟᴇᴅ**\n\n`;
+    let desc = `<a:emoji_5:1510378351867465970> **𝐀ɴᴛɪɴᴜᴋᴇ 𝐂ᴏᴍᴍᴀɴᴅs 𝐄ɴᴀʙʟᴇᴅ**\n\n`;
     if(selected === 'all') {
       desc += '<a:emoji_6:1508919030562426950> All Antinuke Events Enabled';
     } else {
@@ -1047,7 +1047,7 @@ if (interaction.isStringSelectMenu() && interaction.customId === 'help_menu') {
       await interaction.guild.members.ban(data.targetId,{ deleteMessageSeconds: 0, reason:data.reason });
 
       await sendIncidentOwnerDM(interaction.guild, `# 🔨 Ban Alert\n**Guild:** ${interaction.guild.name} (${interaction.guild.id})\n**User:** <@${data.targetId}> (${data.targetId})\n**Banned By:** ${interaction.user.tag} (${interaction.user.id})\n**Reason:** ${data.reason || 'No Reason Provided'}`, true).catch(() => {});
-      const embed = new EmbedBuilder().setColor('#ff0000').setColor('#2b2d31').setDescription(`<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully banned <@${data.targetId}>`);
+      const embed = new EmbedBuilder().setColor('#ff0000').setColor('#2b2d31').setDescription(`<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully banned <@${data.targetId}>`);
       pendingBans.delete(interaction.message.id);
       return interaction.update({embeds:[embed],components:[]});
     }catch(e){
@@ -1247,10 +1247,10 @@ if (interaction.isStringSelectMenu() && interaction.customId === 'help_menu') {
         .setColor('#2F3136')
         .setDescription(
           sub === 'mute' && target
-            ? `<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully muted <@${target.id}>`
+            ? `<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully muted <@${target.id}>`
             : sub === 'unmute' && target
-            ? `<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully unmuted <@${target.id}>`
-            : `<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully ${sub}`
+            ? `<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully unmuted <@${target.id}>`
+            : `<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully ${sub}`
         );
 
       return interaction.editReply({ embeds: [vcEmbed] });
@@ -1295,7 +1295,7 @@ if (interaction.isStringSelectMenu() && interaction.customId === 'help_menu') {
       await guild.members.unban(userId);
 
       await sendIncidentOwnerDM(guild, `# 🔓 Unban Alert\n**Guild:** ${guild.name} (${guild.id})\n**User:** <@${userId}> (${userId})\n**Unbanned By:** ${interaction.user.tag} (${interaction.user.id})`, true).catch(() => {});
-      return interaction.editReply({content:`<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Mission Success\n\n• Successfully unbanned <@${userId}>`});
+      return interaction.editReply({content:`<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Mission Success\n\n• Successfully unbanned <@${userId}>`});
     }catch(e){
       return interaction.editReply({content:'❌ Failed to unban user'});
     }
@@ -1610,7 +1610,7 @@ if (!player.playing && !player.paused) player.play();
               });
             }
 
-            const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\\n\\n• 247 enabled');
+            const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\\n\\n• 247 enabled');
             await interaction.editReply({ components: [container], flags: MessageFlags.IsComponentsV2 });
           }
         }
@@ -1813,7 +1813,7 @@ if (!player.playing && !player.paused) player.play();
           const sub = options.getSubcommand();
           const antiEmbed = new EmbedBuilder()
             .setColor('#2B2D31')
-            .setDescription(`<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Antinuke ${sub} executed`);
+            .setDescription(`<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Antinuke ${sub} executed`);
           return interaction.editReply({ embeds:[antiEmbed] });
         }
 
@@ -2018,7 +2018,7 @@ delete require.cache[require.resolve("./prefix.json")];
           await message.guild.members.unban(userId);
 
           await sendIncidentOwnerDM(message.guild, `# 🔓 Unban Alert\n**Guild:** ${message.guild.name} (${message.guild.id})\n**User:** <@${userId}> (${userId})\n**Unbanned By:** ${message.author.tag} (${message.author.id})`, true).catch(() => {});
-          return message.reply('<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Mission Success\n\n• Successfully unbanned <@'+userId+'>');
+          return message.reply('<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Mission Success\n\n• Successfully unbanned <@'+userId+'>');
         }catch(e){
           return message.reply('❌ Failed to unban user');
         }
@@ -2190,7 +2190,7 @@ Made by Team GBL`);
 
             const antiEmbed = new EmbedBuilder()
               .setColor('#2B2D31')
-              .setDescription(`<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Antinuke ${sub} executed`);
+              .setDescription(`<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Antinuke ${sub} executed`);
 
             return message.reply({ embeds:[antiEmbed] });
           }
@@ -2223,13 +2223,13 @@ Made by Team GBL`);
             try {
               if (sub === 'mute' && target) {
                 await target.voice.setMute(true);
-                const muteEmbed = new EmbedBuilder().setColor('#2F3136').setDescription(`<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully muted <@${target.id}>`);
+                const muteEmbed = new EmbedBuilder().setColor('#2F3136').setDescription(`<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully muted <@${target.id}>`);
                 return message.reply({ embeds: [muteEmbed] });
               }
 
               if (sub === 'unmute' && target) {
                 await target.voice.setMute(false);
-                const unmuteEmbed = new EmbedBuilder().setColor('#2F3136').setDescription(`<a:emoji_4:1507687406927740948> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully unmuted <@${target.id}>`);
+                const unmuteEmbed = new EmbedBuilder().setColor('#2F3136').setDescription(`<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\n\n• Successfully unmuted <@${target.id}>`);
                 return message.reply({ embeds: [unmuteEmbed] });
               }
 
@@ -2629,7 +2629,7 @@ Made by Team GBL`);
                 });
               }
 
-              const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_4:1507687406927740948>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
+              const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_5:1510378351867465970>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
               await message.reply({ embeds: [container] });
             }
           }
@@ -3244,7 +3244,7 @@ client.on("messageCreate", async (message) => {
 await member.timeout(null, reason).catch(() => {});
 
       await message.channel.send(
-`<a:emoji_4:1507687406927740948> 𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss
+`<a:emoji_5:1510378351867465970> 𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss
 Successfully timeout Removed
 
 
@@ -3387,7 +3387,7 @@ client.on("messageCreate", async (message) => {
 
       const embed = new EmbedBuilder()
       .setColor("#000000")
-      .setDescription("<a:emoji_4:1507687406927740948> 𝐓ɪᴍᴇ 𝐎ᴜᴛ 𝐈ɴᴄʀᴇᴀsᴇᴅ\n\nNew Spam Timeout : `" + timeArg + "`");
+      .setDescription("<a:emoji_5:1510378351867465970> 𝐓ɪᴍᴇ 𝐎ᴜᴛ 𝐈ɴᴄʀᴇᴀsᴇᴅ\n\nNew Spam Timeout : `" + timeArg + "`");
 
       return message.channel.send({ embeds: [embed] }).catch(() => {});
     }
@@ -3444,7 +3444,7 @@ client.on("messageCreate", async (message) => {
 
     const embed = new EmbedBuilder()
     .setColor("#000000")
-    .setDescription("<a:emoji_4:1507687406927740948> 𝐓ɪᴍᴇ 𝐎ᴜᴛ 𝐈ɴᴄʀᴇᴀsᴇᴅ\n\nUser : " + member.user.tag + "\nTime : `" + setting + "`");
+    .setDescription("<a:emoji_5:1510378351867465970> 𝐓ɪᴍᴇ 𝐎ᴜᴛ 𝐈ɴᴄʀᴇᴀsᴇᴅ\n\nUser : " + member.user.tag + "\nTime : `" + setting + "`");
 
     await message.channel.send({ embeds: [embed] }).catch(() => {});
 
@@ -3571,7 +3571,7 @@ client.on('messageCreate', async (message) => {
       embeds: [
         new EmbedBuilder()
           .setColor('#000000')
-          .setDescription('<a:emoji_4:1507687406927740948> **ANTI SPAM ENABLED**')
+          .setDescription('<a:emoji_5:1510378351867465970> **ANTI SPAM ENABLED**')
       ]
     });
   }
@@ -3583,7 +3583,7 @@ client.on('messageCreate', async (message) => {
       embeds: [
         new EmbedBuilder()
           .setColor('#000000')
-          .setDescription('<a:emoji_4:1507687406927740948> **ANTI SPAM DISABLED**')
+          .setDescription('<a:emoji_5:1510378351867465970> **ANTI SPAM DISABLED**')
       ]
     });
   }
