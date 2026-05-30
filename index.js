@@ -800,7 +800,7 @@ async function updateVoiceChannelStatus(player, text) {
 }
 
 riffy.on('trackStart', async (player, track) => {
-  await updateVoiceChannelStatus(player, `🎵 ${track.title} | ${track.author || 'Unknown'}`);
+  // Status update disabled in 24/7 patch
   const channel = client.channels.cache.get(player.textChannel);
   if (!channel) return;
 
@@ -834,7 +834,7 @@ riffy.on('queueEnd', async (player) => {
   }
 
   if (queue247.has(player.guildId)) {
-    await updateVoiceChannelStatus(player, 'GBL MUSIC');
+    await updateVoiceChannelStatus(player, '24/7 Mode Active | .play');
     if (channel) {
       const container = createSimpleContainerNoButtons('24/7 Mode', 'Queue ended but staying in 24/7 mode', config.emojis.info);
       await channel.send({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
