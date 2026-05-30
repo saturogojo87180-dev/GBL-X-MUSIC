@@ -785,7 +785,22 @@ function createHelpContainer() {
     );
 }
 
+
+// Voice Status Helper
+async function updateVoiceChannelStatus(player, text) {
+  try {
+    const vc = client.channels.cache.get(player.voiceChannel);
+    if (!vc) return;
+    if (typeof vc.setStatus === 'function') {
+      await vc.setStatus(text);
+    }
+  } catch (e) {
+    console.log('Voice status update skipped:', e.message);
+  }
+}
+
 riffy.on('trackStart', async (player, track) => {
+  await updateVoiceChannelStatus(player, `🎵 ${track.title} | ${track.author || 'Unknown'}`);
   const channel = client.channels.cache.get(player.textChannel);
   if (!channel) return;
 
@@ -819,6 +834,7 @@ riffy.on('queueEnd', async (player) => {
   }
 
   if (queue247.has(player.guildId)) {
+    await updateVoiceChannelStatus(player, '🤖 24/7 Mode Active | /play');
     if (channel) {
       const container = createSimpleContainerNoButtons('24/7 Mode', 'Queue ended but staying in 24/7 mode', config.emojis.info);
       await channel.send({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
