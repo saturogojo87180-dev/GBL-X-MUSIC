@@ -6,6 +6,7 @@ module.exports = {
   ownerId: "1379140565589033040",
   prefixlessUsers: [
     "1379140565589033040", // owner
+    "1342904243488817163",
   ],
   supportServer: "https://discord.gg/5rFpMjmbX",
 
