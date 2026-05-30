@@ -1610,8 +1610,10 @@ if (!player.playing && !player.paused) player.play();
               });
             }
 
-            const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_5:1510378351867465970> **𝐌ɪssɪᴏɴ 𝐒ᴜᴄᴄᴇss**\\n\\n• 247 enabled');
-            await interaction.editReply({ components: [container], flags: MessageFlags.IsComponentsV2 });
+            const container = new EmbedBuilder()
+              .setColor('#2B2D31')
+              .setDescription('<a:emoji_5:1510378351867465970>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
+            await interaction.editReply({ embeds: [container] });
           }
         }
 
