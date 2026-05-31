@@ -1060,7 +1060,10 @@ if (interaction.isStringSelectMenu() && interaction.customId === 'help_menu') {
     const player = riffy.players.get(interaction.guildId);
 
     if (!player) {
-      return interaction.editReply({ content: `${config.emojis.error} No player found` });
+      if (['pause','resume','skip','stop','shuffle','loop'].includes(interaction.customId)) {
+        return interaction.editReply({ content: `${config.emojis.error} No player found` });
+      }
+      return;
     }
 
     const member = interaction.member;
