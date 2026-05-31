@@ -834,7 +834,8 @@ riffy.on('queueEnd', async (player) => {
   }
 
   if (queue247.has(player.guildId)) {
-    await updateVoiceChannelStatus(player, '24/7 Mode Active | .play');
+    await updateVoiceChannelStatus(player, '🎧 • GENERAL VC
+♫ Use .play to Vibe with GBL X MUSIC');
     if (channel) {
       const container = createSimpleContainerNoButtons('24/7 Mode', 'Queue ended but staying in 24/7 mode', config.emojis.info);
       await channel.send({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
@@ -1243,12 +1244,12 @@ if (interaction.isStringSelectMenu() && interaction.customId === 'help_menu') {
       if (sub === 'undeafen' && target) await target.voice.setDeaf(false);
       if (sub === 'deafenall') for (const [, m] of vc.members) await m.voice.setDeaf(true);
       if (sub === 'undeafenall') for (const [, m] of vc.members) await m.voice.setDeaf(false);
-      if (sub === 'move' && target && targetChannel) await target.voice.setChannel(targetChannel);
+      if (sub === 'move' && targetChannel) for (const [, m] of vc.members) await m.voice.setChannel(targetChannel);
       if (sub === 'moveall' && targetChannel) for (const [, m] of vc.members) await m.voice.setChannel(targetChannel);
 
       const actionText =
-        sub === 'move' && target && targetChannel ? `Successfully Moved To ${targetChannel.name}` :
-        sub === 'moveall' && targetChannel ? `Successfully Moved To ${targetChannel.name}` :
+        sub === 'move' && targetChannel ? `Successfully Moved To GBL music` :
+        sub === 'moveall' && targetChannel ? `Successfully Moved To GBL music` :
         sub === 'mute' && target ? `Successfully Muted ${target.user.tag}` :
         sub === 'unmute' && target ? `Successfully Unmuted ${target.user.tag}` :
         sub === 'kick' && target ? `Successfully Kicked ${target.user.tag}` :
@@ -1572,7 +1573,7 @@ if (!player.playing && !player.paused) player.play();
           const to = options.getInteger('to') - 1;
 
           if (from < 0 || from >= player.queue.length || to < 0 || to >= player.queue.length) {
-            return interaction.editReply({ content: `${config.emojis.error} Invalid positions`, ephemeral: true });
+            return interaction.editReply({ content: `${config.emojis.error} Successfully Moved To GBL music`, ephemeral: true });
           }
 
           const track = player.queue.remove(from);
@@ -1618,7 +1619,8 @@ if (!player.playing && !player.paused) player.play();
             const container = new EmbedBuilder()
               .setColor('#2B2D31')
               .setDescription('<a:emoji_5:1510378351867465970>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
-            await updateVoiceChannelStatus(riffy.players.get(guild.id) || player || {voiceChannel: member.voice.channel.id}, '24/7 Mode Active | .play');
+            await updateVoiceChannelStatus(riffy.players.get(guild.id) || player || {voiceChannel: member.voice.channel.id}, '🎧 • GENERAL VC
+♫ Use .play to Vibe with GBL X MUSIC');
             await interaction.editReply({ embeds: [container] });
           }
         }
@@ -2608,7 +2610,7 @@ Made by Team GBL`);
             const to = parseInt(args[1]) - 1;
 
             if (isNaN(from) || isNaN(to) || from < 0 || from >= player.queue.length || to < 0 || to >= player.queue.length) {
-              return message.reply(`${config.emojis.error} Invalid positions`);
+              return message.reply(`${config.emojis.error} Successfully Moved To GBL music`);
             }
 
             const track = player.queue.remove(from);
@@ -2652,7 +2654,8 @@ Made by Team GBL`);
               }
 
               const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_5:1510378351867465970>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
-              await updateVoiceChannelStatus(riffy.players.get(message.guild.id) || player || {voiceChannel: message.member.voice.channel.id}, '24/7 Mode Active | .play');
+              await updateVoiceChannelStatus(riffy.players.get(message.guild.id) || player || {voiceChannel: message.member.voice.channel.id}, '🎧 • GENERAL VC
+♫ Use .play to Vibe with GBL X MUSIC');
               await message.reply({ embeds: [container] });
             }
           }
