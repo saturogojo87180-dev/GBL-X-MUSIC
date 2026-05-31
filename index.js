@@ -1061,7 +1061,7 @@ if (interaction.isStringSelectMenu() && interaction.customId === 'help_menu') {
 
     if (!player) {
       if (['pause','resume','skip','stop','shuffle','loop'].includes(interaction.customId)) {
-        return interaction.editReply({ content: `${config.emojis.error} No player found` });
+        return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
       }
       return;
     }
@@ -1378,7 +1378,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'pause') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found`, ephemeral: true });
+    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel`, ephemeral: true });
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel` });
     }
@@ -1390,7 +1390,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'resume') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found`, ephemeral: true });
+    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel`, ephemeral: true });
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
     }
@@ -1402,7 +1402,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'skip') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
     }
@@ -1417,7 +1417,7 @@ if (!player.playing && !player.paused) player.play();
       return interaction.editReply({ content: '🔒 Serious Stop is active.', ephemeral: true });
     }
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
     }
@@ -1438,7 +1438,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'volume') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
     }
@@ -1451,7 +1451,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'queue') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
 
     if (player.queue.length === 0 && !player.current) {
       return interaction.editReply({ content: `${config.emojis.error} Queue is empty` });
@@ -1516,7 +1516,7 @@ if (!player.playing && !player.paused) player.play();
 
         if (commandName === 'shuffle') {
           const player = riffy.players.get(guild.id);
-          if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+          if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
           if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
             return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
           }
@@ -1531,7 +1531,7 @@ if (!player.playing && !player.paused) player.play();
 
         if (commandName === 'loop') {
           const player = riffy.players.get(guild.id);
-          if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+          if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
           if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
             return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
           }
@@ -1544,7 +1544,7 @@ if (!player.playing && !player.paused) player.play();
 
         if (commandName === 'remove') {
           const player = riffy.players.get(guild.id);
-          if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+          if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
           if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
             return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
           }
@@ -1561,7 +1561,7 @@ if (!player.playing && !player.paused) player.play();
 
         if (commandName === 'move') {
           const player = riffy.players.get(guild.id);
-          if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+          if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
           if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
             return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
           }
@@ -1581,7 +1581,7 @@ if (!player.playing && !player.paused) player.play();
 
         if (commandName === 'clearqueue') {
           const player = riffy.players.get(guild.id);
-          if (!player) return interaction.editReply({ content: `${config.emojis.error} No player found` });
+          if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel` });
           if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
             return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
           }
@@ -2406,7 +2406,7 @@ Made by Team GBL`);
 
           if (command === 'pause') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2418,7 +2418,7 @@ Made by Team GBL`);
 
           if (command === 'resume') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2430,7 +2430,7 @@ Made by Team GBL`);
 
           if (command === 'skip') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2445,7 +2445,7 @@ Made by Team GBL`);
               return message.reply("🔒 Serious Stop is active.");
             }
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2466,7 +2466,7 @@ Made by Team GBL`);
 
           if (command === 'volume') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2483,7 +2483,7 @@ Made by Team GBL`);
 
           if (command === 'queue') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
 
             if (player.queue.length === 0 && !player.current) {
               return message.reply(`${config.emojis.error} Queue is empty`);
@@ -2548,7 +2548,7 @@ Made by Team GBL`);
 
           if (command === 'shuffle') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2563,7 +2563,7 @@ Made by Team GBL`);
 
           if (command === 'loop') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2580,7 +2580,7 @@ Made by Team GBL`);
 
           if (command === 'remove') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2597,7 +2597,7 @@ Made by Team GBL`);
 
           if (command === 'move') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
@@ -2617,7 +2617,7 @@ Made by Team GBL`);
 
           if (command === 'clearqueue') {
             const player = riffy.players.get(message.guild.id);
-            if (!player) return message.reply(`${config.emojis.error} No player found`);
+            if (!player) return message.reply(`${config.emojis.error} GBL MUSIC is not active in a voice channel`);
             if (!message.member.voice.channel || message.member.voice.channel.id !== player.voiceChannel) {
               return message.reply(`${config.emojis.error} You need to be in the same voice channel`);
             }
