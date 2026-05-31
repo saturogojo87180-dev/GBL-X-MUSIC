@@ -1380,7 +1380,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'pause') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel`, ephemeral: true });
+    if (!player) return;
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel` });
     }
@@ -1392,7 +1392,7 @@ if (!player.playing && !player.paused) player.play();
 
   if (commandName === 'resume') {
     const player = riffy.players.get(guild.id);
-    if (!player) return interaction.editReply({ content: `${config.emojis.error} GBL MUSIC is not active in a voice channel`, ephemeral: true });
+    if (!player) return;
     if (!member.voice.channel || member.voice.channel.id !== player.voiceChannel) {
       return interaction.editReply({ content: `${config.emojis.error} You need to be in the same voice channel`, ephemeral: true });
     }
