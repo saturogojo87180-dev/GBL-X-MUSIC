@@ -834,8 +834,8 @@ riffy.on('queueEnd', async (player) => {
   }
 
   if (queue247.has(player.guildId)) {
-    await updateVoiceChannelStatus(player, '🎧 • GENERAL VC
-♫ Use .play to Vibe with GBL X MUSIC');
+    await updateVoiceChannelStatus(player, `🎧 • GENERAL VC
+♫ Use .play to Vibe with GBL X MUSIC`);
     if (channel) {
       const container = createSimpleContainerNoButtons('24/7 Mode', 'Queue ended but staying in 24/7 mode', config.emojis.info);
       await channel.send({ components: [container], flags: MessageFlags.IsPersistent | MessageFlags.IsComponentsV2 });
@@ -1619,8 +1619,8 @@ if (!player.playing && !player.paused) player.play();
             const container = new EmbedBuilder()
               .setColor('#2B2D31')
               .setDescription('<a:emoji_5:1510378351867465970>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
-            await updateVoiceChannelStatus(riffy.players.get(guild.id) || player || {voiceChannel: member.voice.channel.id}, '🎧 • GENERAL VC
-♫ Use .play to Vibe with GBL X MUSIC');
+            await updateVoiceChannelStatus(riffy.players.get(guild.id) || player || {voiceChannel: member.voice.channel.id}, `🎧 • GENERAL VC
+♫ Use .play to Vibe with GBL X MUSIC`);
             await interaction.editReply({ embeds: [container] });
           }
         }
@@ -2654,8 +2654,8 @@ Made by Team GBL`);
               }
 
               const container = new EmbedBuilder().setColor('#2B2D31').setDescription('<a:emoji_5:1510378351867465970>  𝟐𝟒/𝟕 𝐌ᴏᴅᴇ 𝐄ɴᴀʙʟᴇᴅ');
-              await updateVoiceChannelStatus(riffy.players.get(message.guild.id) || player || {voiceChannel: message.member.voice.channel.id}, '🎧 • GENERAL VC
-♫ Use .play to Vibe with GBL X MUSIC');
+              await updateVoiceChannelStatus(riffy.players.get(message.guild.id) || player || {voiceChannel: message.member.voice.channel.id}, `🎧 • GENERAL VC
+♫ Use .play to Vibe with GBL X MUSIC`);
               await message.reply({ embeds: [container] });
             }
           }
