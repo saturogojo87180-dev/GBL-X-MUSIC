@@ -3897,3 +3897,36 @@ try{
 }catch(e){console.log(e);}
 });
 
+
+
+
+// JOIN VC COMMAND
+client.on('messageCreate', async (message) => {
+try{
+ if(message.author.bot || !message.guild) return;
+ const content = (message.content || '').trim().toLowerCase();
+ const prefix = config.prefix || '.';
+ if(![`${prefix}join`,'join',`${prefix}j`,'j'].includes(content)) return;
+
+ const vc = message.member?.voice?.channel;
+ if(!vc) return message.reply('❌ First join a voice channel');
+
+ const player = riffy.players.get(message.guild.id);
+ if(player){
+   if(player.voiceChannel !== vc.id){
+      player.voiceChannel = vc.id;
+   }
+   return message.reply(`✅ Joined ${vc.name}`);
+ }
+
+ await riffy.createConnection({
+   guildId: message.guild.id,
+   voiceChannel: vc.id,
+   textChannel: message.channel.id,
+   deaf: true
+ }).catch(()=>{});
+
+ return message.reply(`✅ Joined ${vc.name}`);
+}catch(e){console.log('Join Command Error:',e);}
+});
+
