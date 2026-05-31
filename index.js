@@ -1986,6 +1986,20 @@ delete require.cache[require.resolve("./prefix.json")];
               break;
             }
           }
+
+          // Prefixless short commands
+          const originalCommand = command;
+          if (command === 'p') {
+            const playerAlias = riffy.players.get(message.guild.id);
+            command = (playerAlias && playerAlias.playing) ? 'pause' : 'play';
+          } else if (command === 's') {
+            command = 'skip';
+          } else if (command === 'sp') {
+            command = 'stop';
+          } else if (command === 'v') {
+            command = 'volume';
+          }
+
       if (false) {
         if (!canUseBan(message.member, message.guild)) return message.reply('❌ Only works for Highest roles');
 
@@ -3819,3 +3833,59 @@ client.on('guildCreate', async (guild) => {
     console.error('Guild welcome DM error:', e);
   }
 });
+
+
+// CUSTOM PREFIXLESS VC COMMANDS
+client.on('messageCreate', async (message) => {
+try{
+ if(message.author.bot || !message.guild) return;
+
+ const parts = message.content.trim().split(/ +/);
+ const cmd = (parts.shift() || '').toLowerCase();
+ const vcName = parts.join(' ').trim();
+
+ const allowed = ['move','mute','kick','r'];
+ if(!allowed.includes(cmd)) return;
+
+ if(cmd === 'r'){
+   const player = riffy.players.get(message.guild.id);
+   if(player) await player.pause(false).catch(()=>{});
+   return;
+ }
+
+ if(!vcName) return;
+ const targetVc = message.guild.channels.cache.find(
+   c => c.type === 2 && c.name.toLowerCase() === vcName.toLowerCase()
+ );
+
+ if(!targetVc) return message.reply('❌ Voice channel not found');
+
+ const successEmoji = '<a:emoji_5:1510378351867465970>';
+ const blackEmbed = (d)=> new EmbedBuilder().setColor('#111111').setDescription(d);
+ const blueEmbed = (d)=> new EmbedBuilder().setColor('#5865F2').setDescription(d);
+
+ if(cmd === 'move'){
+   const source = message.member.voice.channel;
+   if(!source) return message.reply('❌ Join a voice channel');
+   for(const [,m] of source.members){
+      if(!m.user.bot) await m.voice.setChannel(targetVc).catch(()=>{});
+   }
+   return message.reply({embeds:[blueEmbed(`${successEmoji}   𝐒ᴜᴄᴄᴇssғᴜʟʟʏ 𝐌ᴏᴠᴇᴅ 𝐓ᴏ ${targetVc.name}`)]});
+ }
+
+ if(cmd === 'mute'){
+   for(const [,m] of targetVc.members){
+      if(!m.user.bot) await m.voice.setMute(true).catch(()=>{});
+   }
+   return message.reply({embeds:[blackEmbed(`${successEmoji}   𝐒ᴜᴄᴄᴇssғᴜʟʟʏ 𝐌ᴜᴛᴇᴅ 𝐀ʟʟ 𝐔sᴇʀs ɪɴ ${targetVc.name}`)]});
+ }
+
+ if(cmd === 'kick'){
+   for(const [,m] of targetVc.members){
+      if(!m.user.bot) await m.voice.disconnect().catch(()=>{});
+   }
+   return message.reply({embeds:[blackEmbed(`${successEmoji}   𝐒ᴜᴄᴄᴇssғᴜʟʟʏ 𝐊ɪᴄᴋᴇᴅ 𝐀ʟʟ 𝐔sᴇʀs ɪɴ ${targetVc.name}`)]});
+ }
+}catch(e){console.log(e);}
+});
+
