@@ -1,9 +1,5 @@
-
-try {
-    player.extractors.loadDefault();
-} catch (e) {
-    console.log("Extractor load skipped");
-}
+process.on('unhandledRejection', console.error);
+process.on('uncaughtException', console.error);
 
 // index.js
 const { Client, GatewayIntentBits, ActivityType, EmbedBuilder, ActionRowBuilder,
@@ -131,6 +127,20 @@ Object.defineProperty = function(obj, prop, descriptor) {
 };
 
 const queue247 = new Set();
+riffy.on("nodeConnect", node => {
+  console.log(`Lavalink Connected: ${node.name}`);
+  isLavalinkConnected = true;
+});
+
+riffy.on("nodeDisconnect", (node, reason) => {
+  console.log(`Lavalink Disconnected: ${node.name}`, reason);
+  isLavalinkConnected = false;
+});
+
+riffy.on("nodeError", (node, error) => {
+  console.error(`Lavalink Error: ${node.name}`, error);
+});
+
 
 // ===== SERIOUS STOP SYSTEM =====
 const seriousStopGuilds = new Set();
