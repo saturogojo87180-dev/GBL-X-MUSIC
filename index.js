@@ -2746,7 +2746,13 @@ Made by Team GBL`);
         });
       }
 
-      client.login(config.token);
+      if (!config.token) {
+  console.error('DISCORD_TOKEN is missing');
+} else {
+  client.login(config.token)
+    .then(() => console.log('Login request sent to Discord'))
+    .catch(err => console.error('Discord login failed:', err));
+}
 
 
 const OWNER_ID = process.env.OWNER_ID || config.ownerId || "YOUR_USER_ID";
